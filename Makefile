@@ -1,7 +1,7 @@
 BUILD_DIR = build
 CLEANCSS = ./node_modules/.bin/cleancss
 DEPLOY_DIR = libs
-LIBJITSIMEET_DIR = node_modules/lib-jitsi-meet/
+LIBJITSIMEET_DIR = node_modules/lib-jitsi-meet
 LIBFLAC_DIR = node_modules/libflacjs/dist/min/
 RNNOISE_WASM_DIR = node_modules/rnnoise-wasm/dist/
 NODE_SASS = ./node_modules/.bin/node-sass
@@ -88,3 +88,15 @@ source-package:
 	cp css/all.css source_package/jitsi-meet/css && \
 	(cd source_package ; tar cjf ../jitsi-meet.tar.bz2 jitsi-meet) && \
 	rm -rf source_package
+
+docker-web: deploy-init deploy-appbundle deploy-rnnoise-binary deploy-lib-jitsi-meet deploy-libflac deploy-css
+	docker buildx build -t dhrp/anyone.video-web .
+
+push:
+	docker push dhrp/anyone.video-web
+
+docker-compose:
+	docker-compose rm -fs web 
+	docker-compose up -d -V
+	
+visual: deploy-css source-package docker-web docker-compose
