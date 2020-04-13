@@ -1,6 +1,6 @@
 // @flow
 
-import { generateRoomWithoutSeparator } from 'js-utils/random';
+import { generateRoomWithoutSeparator } from './RoomNameGenerator.js';
 import { Component } from 'react';
 import type { Dispatch } from 'redux';
 

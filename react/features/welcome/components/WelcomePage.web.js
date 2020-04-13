@@ -6,8 +6,9 @@ import { translate } from '../../base/i18n';
 import { Watermarks } from '../../base/react';
 import { connect } from '../../base/redux';
 import { isMobileBrowser } from '../../base/environment/utils';
-import { CalendarList } from '../../calendar-sync';
-import { RecentList } from '../../recent-list';
+
+// import { CalendarList } from '../../calendar-sync';
+// import { RecentList } from '../../recent-list';
 import { SettingsButton, SETTINGS_TABS } from '../../settings';
 
 import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
@@ -158,7 +159,8 @@ class WelcomePage extends AbstractWelcomePage {
      */
     render() {
         const { t } = this.props;
-        const { APP_NAME } = interfaceConfig;
+
+        // const { APP_NAME } = interfaceConfig;
         const showAdditionalContent = this._shouldShowAdditionalContent();
         const showAdditionalToolbarContent = this._shouldShowAdditionalToolbarContent();
         const showResponsiveText = this._shouldShowResponsiveText();
@@ -175,7 +177,7 @@ class WelcomePage extends AbstractWelcomePage {
                     <div className = 'welcome-page-settings'>
                         <SettingsButton
                             defaultTab = { SETTINGS_TABS.CALENDAR } />
-                        { showAdditionalToolbarContent
+                        {showAdditionalToolbarContent
                             ? <div
                                 className = 'settings-toolbar-content'
                                 ref = { this._setAdditionalToolbarContentRef } />
@@ -183,19 +185,11 @@ class WelcomePage extends AbstractWelcomePage {
                         }
                     </div>
                     <div className = 'header-image' />
-                    <div className = 'header-text'>
-                        <h1 className = 'header-text-title'>
-                            { t('welcomepage.title') }
-                        </h1>
-                        <p className = 'header-text-description'>
-                            { t('welcomepage.appDescription',
-                                { app: APP_NAME }) }
-                        </p>
-                    </div>
+
                     <div id = 'enter_room'>
                         <div className = 'enter-room-input-container'>
                             <div className = 'enter-room-title'>
-                                { t('welcomepage.enterRoomTitle') }
+                                {t('welcomepage.enterRoomTitle')}
                             </div>
                             <form onSubmit = { this._onFormSubmit }>
                                 <input
@@ -222,13 +216,22 @@ class WelcomePage extends AbstractWelcomePage {
                             }
                         </div>
                     </div>
-                    { this._renderTabs() }
+                    <div className = 'header-text'>
+                        <h1 className = 'header-text-title'>
+                            {t('welcomepage.title')}
+                        </h1>
+                    </div>
+                    {/* <p className = 'header-text-description'>
+                        { t('welcomepage.appDescription',
+                            { app: APP_NAME }) }
+                    </p> */}
+                    {this._renderTabs()}
                 </div>
-                { showAdditionalContent
+                {showAdditionalContent
                     ? <div
                         className = 'welcome-page-content'
                         ref = { this._setAdditionalContentRef } />
-                    : null }
+                    : null}
             </div>
         );
     }
@@ -285,23 +288,23 @@ class WelcomePage extends AbstractWelcomePage {
             return null;
         }
 
-        const { _calendarEnabled, _recentListEnabled, t } = this.props;
+        // const { _calendarEnabled, _recentListEnabled, t } = this.props;
 
         const tabs = [];
 
-        if (_calendarEnabled) {
-            tabs.push({
-                label: t('welcomepage.calendar'),
-                content: <CalendarList />
-            });
-        }
+        // if (_calendarEnabled) {
+        //     tabs.push({
+        //         label: t('welcomepage.calendar'),
+        //         content: <CalendarList />
+        //     });
+        // }
 
-        if (_recentListEnabled) {
-            tabs.push({
-                label: t('welcomepage.recentList'),
-                content: <RecentList />
-            });
-        }
+        // if (_recentListEnabled) {
+        //     tabs.push({
+        //         label: t('welcomepage.recentList'),
+        //         content: <RecentList />
+        //     });
+        // }
 
         if (tabs.length === 0) {
             return null;

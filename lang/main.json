@@ -759,11 +759,11 @@
         "calendar": "Calendar",
         "connectCalendarButton": "Connect your calendar",
         "connectCalendarText": "Connect your calendar to view all your meetings in {{app}}. Plus, add {{provider}} meetings to your calendar and start them with one click.",
-        "enterRoomTitle": "Start a new meeting",
+        "enterRoomTitle": "Choose a name for your room",
         "getHelp": "Get help",
         "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \", %, #.",
-        "go": "GO",
-        "goSmall": "GO",
+        "go": "Go!",
+        "goSmall": "Go!",
         "join": "CREATE / JOIN",
         "info": "Info",
         "privacy": "Privacy",
@@ -775,7 +775,7 @@
         "roomnameHint": "Enter the name or URL of the room you want to join. You may make a name up, just let the people you are meeting know it so that they enter the same name.",
         "sendFeedback": "Send feedback",
         "terms": "Terms",
-        "title": "Secure, fully featured, and completely free video conferencing"
+        "title": "Free and Simple. A video platform anyone can use."
     },
     "lonelyMeetingExperience": {
         "button": "Invite others",

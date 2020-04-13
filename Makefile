@@ -97,6 +97,8 @@ push:
 
 docker-compose:
 	docker-compose rm -fs web 
-	docker-compose up -d -V
+	docker-compose up -d
 	
 visual: deploy-css source-package docker-web docker-compose
+
+rebuild: compile deploy source-package docker-web docker-compose
